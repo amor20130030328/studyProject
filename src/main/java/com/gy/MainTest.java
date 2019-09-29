@@ -53,6 +53,16 @@ public class MainTest {
 		bookController.insert(book);
 	}
 	
+	@Test
+	public void testExcludeFilter() {
+		
+		BookDao bookDao = app.getBean(BookDao.class);
+		//BookService bookService = app.getBean(BookService.class);
+		//BookController bookController = app.getBean(BookController.class);
+		//System.err.println(bookController + ":" + bookService + ":" + bookDao);
+		System.err.println(bookDao);
+	}
+	
 	
 	@Test
 	public void testBeanDefinition() {
