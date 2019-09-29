@@ -1,0 +1,13 @@
+package com.gy.service;
+
+import com.gy.bean.Book;
+
+public interface BookService {
+
+	
+	/**
+	 * –¬ È»Îø‚
+	 * @param book
+	 */
+	void storeBook(Book book);
+}
