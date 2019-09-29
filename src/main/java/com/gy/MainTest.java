@@ -32,11 +32,11 @@ public class MainTest {
 	public void test() {
 		//根据类名获取
 		Person person = app.getBean(Person.class);
-		System.err.println(person);
+		//System.err.println(person);
 		
 		//根据Id获取
 		Person person2 = (Person) app.getBean("person");
-		System.err.println(person2);
+		System.err.println(person2 == person);
 	}
 	
 	
@@ -56,11 +56,12 @@ public class MainTest {
 	@Test
 	public void testExcludeFilter() {
 		
-		BookDao bookDao = app.getBean(BookDao.class);
-		//BookService bookService = app.getBean(BookService.class);
+		//BookDao bookDao = app.getBean(BookDao.class);
+		BookService bookService = app.getBean(BookService.class);
 		//BookController bookController = app.getBean(BookController.class);
 		//System.err.println(bookController + ":" + bookService + ":" + bookDao);
-		System.err.println(bookDao);
+		//System.err.println(bookDao);
+		//System.err.println(bookService);
 	}
 	
 	

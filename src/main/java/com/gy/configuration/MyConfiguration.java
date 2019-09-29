@@ -10,10 +10,19 @@ import org.springframework.context.annotation.ComponentScan.Filter;
 
 import com.gy.bean.Person;
 import com.gy.dao.BookDao;
+import com.gy.filter.MyTypeFilter;
 
-@ComponentScan(basePackages="com.gy",excludeFilters= {
+/*@ComponentScan(basePackages="com.gy",excludeFilters= {
 			@Filter(type=FilterType.ANNOTATION,classes= {Controller.class,Service.class}),
 			@Filter(type=FilterType.ASSIGNABLE_TYPE,classes=BookDao.class)
+})*/
+/*@ComponentScan(basePackages="com.gy" ,includeFilters= {
+		@Filter(type=FilterType.ASSIGNABLE_TYPE,value=BookDao.class)
+		
+},useDefaultFilters=false)*/
+
+@ComponentScan(basePackages="com.gy",excludeFilters= {
+		@Filter(type=FilterType.CUSTOM,value=MyTypeFilter.class)
 })
 @Configuration
 public class MyConfiguration {
