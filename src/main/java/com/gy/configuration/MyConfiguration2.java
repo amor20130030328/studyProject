@@ -11,9 +11,12 @@ import com.gy.bean.Black;
 import com.gy.bean.Color;
 import com.gy.bean.Person;
 import com.gy.bean.Red;
+import com.gy.bean.Yellow;
 import com.gy.conditional.LinuxConditional;
 import com.gy.conditional.MyConditional;
 import com.gy.conditional.WindowsConditional;
+import com.gy.factorybean.ColorFactoryBean;
+import com.gy.register.MyImportBeanDefinitionRegister;
 
 
 /**
@@ -21,7 +24,9 @@ import com.gy.conditional.WindowsConditional;
  * 容器中就会自动注册这个组件，id默认是全类名
  */
 //@Conditional(LinuxConditional.class)
-@Import(value = {Color.class,Red.class,com.gy.selector.MyColorImportSelector.class})
+@Import(value = {Color.class,Red.class,
+			com.gy.selector.MyColorImportSelector.class,
+			MyImportBeanDefinitionRegister.class})
 @Configuration
 public class MyConfiguration2 {
 	
@@ -58,5 +63,16 @@ public class MyConfiguration2 {
 	public Person linux() {
 		return new Person("linus", 45);
 	}
+	
+	@Bean("yellow")
+	public Yellow getYellow() {
+		return new Yellow();
+	}
+	
+	@Bean
+	public ColorFactoryBean colorFactoryBean() {
+		return new ColorFactoryBean();
+	}
 
+	
 }

@@ -8,8 +8,10 @@ import org.springframework.core.env.Environment;
 
 import com.gy.bean.Black;
 import com.gy.bean.Person;
+import com.gy.bean.Rainbow;
 import com.gy.bean.Yellow;
 import com.gy.configuration.MyConfiguration2;
+import com.gy.factorybean.ColorFactoryBean;
 
 public class MainTest2 {
 	
@@ -68,6 +70,25 @@ public class MainTest2 {
 		for (String name : names) {
 			System.err.println(name);
 		}
+	}
+	
+	@Test
+	public void testImportDefinitionRegister() {
+		
+		Rainbow rainBow = (Rainbow) app.getBean("rainbow");
+		System.err.println(rainBow);
+		
+	}
+	
+	@Test
+	public void testFactoryBean() {
+		
+		 Object bean = app.getBean("colorFactoryBean");
+		 Object bean2 = app.getBean("colorFactoryBean");
+		 Object bean3 = app.getBean("&colorFactoryBean");
+		 System.err.println(bean3);
+		 System.err.println(bean2);
+		 System.err.println(bean );
 	}
 	
 	
